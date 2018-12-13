@@ -17,6 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 public class JIFMedecin extends JInternalFrame  {
 	/**
 	 * Commentaire pour <code>serialVersionUID</code>
@@ -99,6 +103,8 @@ public class JIFMedecin extends JInternalFrame  {
          p.add(pBoutons);
          Container contentPane = getContentPane();
          contentPane.add(p);
+         
+         
 
 	}
     
