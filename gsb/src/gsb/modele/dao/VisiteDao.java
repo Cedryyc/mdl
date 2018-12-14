@@ -38,16 +38,16 @@ public class VisiteDao {
 		Medecin unMedecin = null;
 		Visiteur unVisiteur = null;
 		ResultSet reqSelection = ConnexionMySql
-		.execReqSelection("select * from VISITE where VISITE.MATRICULE ='" + matricule + "'");
+		.execReqSelection("select * from VISITE where VISITE.REFERENCE ='" + matricule + "'");
 		try {
 		if (reqSelection.next()) {
 		uneVisite = new Visite(reqSelection.getString(1), reqSelection.getString(2),
-		reqSelection.getString(3), unVisiteur, unMedecin);
+		reqSelection.getString(3), VisiteurDao.rechercherVisiteur(reqSelection.getString(4)), MedecinDao.rechercher(reqSelection.getString(5)));
 		}
 		;
 		} catch (Exception e) {
 		System.out.println(
-		"erreur reqSelection.next() pour la requête - select * from VISITE where VISITE.MATRICULE ='"
+		"erreur reqSelection.next() pour la requête - select * from VISITE where VISITE.REFERENCE ='"
 		+ matricule + "'");
 		e.printStackTrace();
 		}
@@ -60,8 +60,8 @@ public class VisiteDao {
 		ResultSet reqSelection = ConnexionMySql.execReqSelection("select * from VISITE");
 		try{
 		while (reqSelection.next()) {
-			String codeVisite = reqSelection.getString(1);
-		    collectionDesVisites.add(VisiteDao.rechercher(codeVisite));
+			String matricule = reqSelection.getString(1);
+		    collectionDesVisites.add(VisiteDao.rechercher(matricule));
 			}
 		}
 		catch (SQLException e) {

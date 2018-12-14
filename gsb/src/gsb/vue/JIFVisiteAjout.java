@@ -6,6 +6,7 @@ import gsb.modele.Visite;
 import gsb.modele.Visiteur;
 import gsb.modele.dao.MedecinDao;
 import gsb.modele.dao.VisiteDao;
+import gsb.tests.VisiteAjoutTest;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -50,7 +51,7 @@ public class JIFVisiteAjout extends JIFVisite implements ActionListener {
 		// déclaration des sources d'évènements
 		
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
-		setTitle("Ajout d'un Medecin");
+		setTitle("Ajout d'une visite");
 
 		// ajout d'un écouteur d'évènement pour la fermeture de la fenêtre
 		addInternalFrameListener(new InternalFrameAdapter() {
@@ -73,13 +74,13 @@ public class JIFVisiteAjout extends JIFVisite implements ActionListener {
 
 			
 			Localite uneLocalite = new Localite("cp", "ville");
-			Visiteur unVisiteur = new Visiteur(matriculeVisiteur, "nom", "prenom", "login", "mdp", "adresse", uneLocalite, "telephone",date  , 0, "codeUnite", "nomUnite");
+			Visiteur unVisiteur = new Visiteur(matriculeVisiteur, "nom", "prenom", "login", "mdp", "adresse", uneLocalite, "", "codeUnite", "nomUnite");
 			Medecin unMedecin = new Medecin(codeMedecin, "nom", "prenom", "adresse", uneLocalite, "telephone", "potentiel", "specialite");
 			Visite uneVisite = new Visite(reference, date,commentaire, unVisiteur, unMedecin);
 
 
 			if (uneVisite != null) {
-				VisiteDao.creer(uneVisite,unVisiteur,unMedecin);
+				VisiteAjoutTest.ajouterTest(uneVisite, unVisiteur, unMedecin);
 				
 			}
 		}

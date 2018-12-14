@@ -86,5 +86,5 @@ public class JIFVisiteListe extends JIFVisite implements ActionListener {
    	   			fenetreContainer.ouvrirFenetre(new JIFMedecinFiche(unMedecin));
    			}
    		}	
-	}
+}
 }

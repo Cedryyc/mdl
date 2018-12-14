@@ -2,6 +2,7 @@ package gsb.service;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.print.attribute.standard.RequestingUserName;
 
@@ -41,5 +42,4 @@ public class VisiteService {
     		 }
     	return resultat;
     }
-
 }
